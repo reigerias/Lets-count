@@ -7,17 +7,22 @@ public class DestroyBall : MonoBehaviour {
     public static int ballDestroyed;
     void Start()
     {
-        DestroyTime = 5f;
+        DestroyTime = 2f;
         ballDestroyed = 0;
     }  
     	void OnEnable()
     {
         Invoke("Destroy", DestroyTime);       
     }
-    public void Destroy()
+   void Destroy()
     {
         gameObject.SetActive(false);
         ballDestroyed++;
+        Debug.Log("Balls = " + ballDestroyed);
+    }
+    public void Destroys()
+    {
+        gameObject.SetActive(false);
     }
     void OnDisable()
     {

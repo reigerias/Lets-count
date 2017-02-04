@@ -10,7 +10,7 @@ public class CameraMovement : MonoBehaviour {
     static int LastScore; 
     float UpdateTime;
     float LastTime; 
-    int moveCamera;
+    float moveCamera;
     
 	void Start () {
         score = InputManager.score;
@@ -29,7 +29,7 @@ public class CameraMovement : MonoBehaviour {
         UpdateTime = (UpdateTime + Time.deltaTime); //Check time!!
         if (UpdateScore >=10 || UpdateTime > 20)
         {
-            moveCamera = -1;
+            moveCamera = -0.1f;
             transform.Translate(0, 0, moveCamera);
             if (UpdateScore >= 10)
             {                

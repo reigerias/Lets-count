@@ -34,7 +34,7 @@ public class CreatingBall : MonoBehaviour {
         {
             if(!balls[i].activeInHierarchy)
             {
-                Vector3 position = new Vector3(UnityEngine.Random.Range(0, RandomLocation), UnityEngine.Random.Range(0, RandomLocation), UnityEngine.Random.Range(506, 506));//Defining random position
+                Vector3 position = new Vector3(UnityEngine.Random.Range(-RandomLocation, RandomLocation), UnityEngine.Random.Range(-RandomLocation, RandomLocation), UnityEngine.Random.Range(549, 549));//Defining random position
                 balls[i].transform.position = position;
                 balls[i].transform.rotation = Quaternion.identity;
                 balls[i].SetActive(true); // Enabling the ball
