@@ -19,12 +19,13 @@ public class EndCriterion : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         IsRunning();
-        score = PopulateBall.score;
-        BallCount = PopulateBall.GetBallNumber;
+        score = InputManager.score;
+        BallCount = DestroyBall.ballDestroyed;
         missed = BallCount - score;
         if (missed > 3)
         {
             Debug.Log("GAME OVER! GG NOOB!");
+            Application.LoadLevel("tryAgain");
             isRunning = false; 
         }
         

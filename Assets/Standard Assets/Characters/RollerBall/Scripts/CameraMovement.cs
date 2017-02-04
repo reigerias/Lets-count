@@ -7,13 +7,13 @@ public class CameraMovement : MonoBehaviour {
     // Use this for initialization
     private static int score;
     int UpdateScore;
-    int LastScore; 
+    static int LastScore; 
     float UpdateTime;
     float LastTime; 
     int moveCamera;
     
 	void Start () {
-        score = PopulateBall.score;
+        score = InputManager.score;
         UpdateScore = 0;
         LastScore = 0; 
         UpdateTime = 0;
@@ -21,25 +21,26 @@ public class CameraMovement : MonoBehaviour {
 
     }
 
-    // Update is called once per frame
+    // Update is called once per frame You can figure this out ! its easy man!
     void Update() {
-        score = PopulateBall.score;
-        UpdateScore = score - LastScore;
+        score = InputManager.score; // Get the score from input!
+        UpdateScore = score - LastScore; // Check if the difference of score is 10 
         Debug.Log("Checking score" + UpdateScore); 
-        UpdateTime = (UpdateTime + Time.deltaTime); 
+        UpdateTime = (UpdateTime + Time.deltaTime); //Check time!!
         if (UpdateScore >=10 || UpdateTime > 20)
         {
             moveCamera = -1;
             transform.Translate(0, 0, moveCamera);
             if (UpdateScore >= 10)
             {                
-                ResetScore();                
+                ResetScore();
+                CreatingBall.ballCount += 1;       //Increasing the ball count! If you remember!! XD       
             }
             if (UpdateTime > 20)
             {
                 ResetTime();                
             }
-            PopulateBall.RandomLocation += 1;
+            CreatingBall.RandomLocation += 1;
             UpdateBallTimer();
             UpdateDestroyTime();            
 }       
@@ -57,17 +58,20 @@ public class CameraMovement : MonoBehaviour {
 
     public void UpdateBallTimer()
     {
-        if (PopulateBall.BallTimer == 0.6f)
-            PopulateBall.BallTimer = 0.6f;
+        if (CreatingBall.BallTimer == 0.6f)
+            CreatingBall.BallTimer = 0.6f;
         else
-            PopulateBall.BallTimer -= 0.2f;
+           CreatingBall.BallTimer -= 0.2f;
     }
     public void UpdateDestroyTime()
     {
-        if (PopulateBall.DestroyTime == 0.6f)
-            PopulateBall.DestroyTime = 0.6f;
+        if (DestroyBall.DestroyTime == 0.6f)
+            DestroyBall.DestroyTime = 0.6f;
         else
-            PopulateBall.DestroyTime -= 0.2f;
+            DestroyBall.DestroyTime -= 0.2f;
+    }
+    public static int getScore() {
+        return LastScore;
     }
 }
 

@@ -47,7 +47,10 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Standard Assets\Characters\RollerBall\Scripts\CameraMovement.cs" />
+     <Compile Include="Assets\Standard Assets\Characters\RollerBall\Scripts\CreatingBall.cs" />
+     <Compile Include="Assets\Standard Assets\Characters\RollerBall\Scripts\DestroyBall.cs" />
      <Compile Include="Assets\Standard Assets\Characters\RollerBall\Scripts\EndCriterion.cs" />
+     <Compile Include="Assets\Standard Assets\Characters\RollerBall\Scripts\InputManager.cs" />
      <Compile Include="Assets\Standard Assets\Characters\RollerBall\Scripts\PopulateBall.cs" />
      <Compile Include="Assets\Standard Assets\CrossPlatformInput\Scripts\AxisTouchButton.cs" />
      <Compile Include="Assets\Standard Assets\CrossPlatformInput\Scripts\ButtonHandler.cs" />

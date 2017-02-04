@@ -9,7 +9,7 @@ public class PopulateBall : MonoBehaviour
     // Use this for initialization
     public GameObject ball; // A gameobject to hold ball prefab!
     GameObject balls;
-    public static int score;
+    public static int score, Miss;
     public static float BallTimer; //Rate at which ball is being spawned. Initail BallTimer = 2f; 
     public static float DestroyTime; //Destroy period of ball
     public static int RandomLocation; // Position for random location
@@ -36,11 +36,17 @@ public class PopulateBall : MonoBehaviour
             if (timestamp < Time.time)
             {
                 spawnball();
-                timestamp += BallTimer;
+                for (int i = 10; i <= CameraMovement.getScore() ; i = i + 10)// Increase ball number
+                {
+                    spawnball();
+                }
+                    timestamp += BallTimer;
             }
 
             getInput();
-            Destroy(balls, DestroyTime);
+            Destroy(balls, DestroyTime);   
+                   
+           
         }
         else
         {
@@ -54,10 +60,9 @@ public class PopulateBall : MonoBehaviour
     {
         Vector3 position = new Vector3(UnityEngine.Random.Range(0, RandomLocation), UnityEngine.Random.Range(0, RandomLocation), UnityEngine.Random.Range(506, 506));
         balls = Instantiate(ball, position, Quaternion.identity) as GameObject;
-        balls.gameObject.tag = "Retro";
-        GetBallNumber += 1;       
-            
-    }
+         balls.gameObject.tag = "Retro";
+        GetBalls();
+     }
    public void Stop()
     {
 
@@ -66,8 +71,12 @@ public class PopulateBall : MonoBehaviour
         Destroy(ball);
 
     }
+    public void GetBalls()
+   {
+               GetBallNumber += 1;
+    }
     public void getInput() {
-        //while (EndCriterion.isRunning)//Destroting ball on MouseClick.
+      //Destroting ball on MouseClick.
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -83,7 +92,7 @@ public class PopulateBall : MonoBehaviour
                             Debug.Log("It was hit!!!");
                             score++;
                             Debug.Log("Score = " + score);
-
+                            //  GetBallNumber += 1;
 
                         }
                     }
