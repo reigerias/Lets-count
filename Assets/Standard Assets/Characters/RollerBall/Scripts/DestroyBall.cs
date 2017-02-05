@@ -18,6 +18,7 @@ public class DestroyBall : MonoBehaviour {
     {
         gameObject.SetActive(false);
         ballDestroyed++;
+
         Debug.Log("Balls = " + ballDestroyed);
     }
     public void Destroys()
