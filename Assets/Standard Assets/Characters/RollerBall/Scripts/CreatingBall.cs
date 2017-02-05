@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class CreatingBall : MonoBehaviour {
     public GameObject ball; // This is a gameObject
-
+    public static int x;
     public static float BallTimer; //Timer for Ball to spawn
     public static int RandomLocation; // Defines the matrix number initially 4x4 board!
      int pooledAmount ; // Max number of ball to be initialized
     public static int ballCount; // No of balls to be appeared!
     List<GameObject> balls; // List of balls
-     void Start()
+    void Start()
     {
         RandomLocation = 4;
         BallTimer = 2f; 
@@ -26,7 +26,7 @@ public class CreatingBall : MonoBehaviour {
          }
         ballCount = 1;
         InvokeRepeating("SpawnBall", BallTimer , 1f ); //Spawning ball
-    }
+        }
     void SpawnBall()
     {
         //Enables the Ball according to the Ball count!!
@@ -38,7 +38,7 @@ public class CreatingBall : MonoBehaviour {
                 balls[i].transform.position = position;
                 balls[i].transform.rotation = Quaternion.identity;
                 balls[i].SetActive(true); // Enabling the ball
-            }
+                       }
         }
     }
 }
