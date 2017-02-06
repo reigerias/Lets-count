@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MenuScript : MonoBehaviour {
+public class ReturnScript : MonoBehaviour {
 
     // Use this for initialization
     public Button startText;
-    
-	void Start () {
+
+    void Start()
+    {
         startText = startText.GetComponent<Button>();
-       
+
     }
-	
-	// Update is called once per frame
-	public void StartLevel()
+
+    // Update is called once per frame
+    public void StartMen()
     {
         Application.LoadLevel("Menu");
     }
-
-  }
+}
