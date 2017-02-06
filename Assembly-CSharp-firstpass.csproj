@@ -51,7 +51,10 @@
      <Compile Include="Assets\Standard Assets\Characters\RollerBall\Scripts\DestroyBall.cs" />
      <Compile Include="Assets\Standard Assets\Characters\RollerBall\Scripts\EndCriterion.cs" />
      <Compile Include="Assets\Standard Assets\Characters\RollerBall\Scripts\InputManager.cs" />
+     <Compile Include="Assets\Standard Assets\Characters\RollerBall\Scripts\MainMenuScript.cs" />
+     <Compile Include="Assets\Standard Assets\Characters\RollerBall\Scripts\MenuScript.cs" />
      <Compile Include="Assets\Standard Assets\Characters\RollerBall\Scripts\PopulateBall.cs" />
+     <Compile Include="Assets\Standard Assets\Characters\RollerBall\Scripts\ReturnScript.cs" />
      <Compile Include="Assets\Standard Assets\Characters\RollerBall\Scripts\ScoreManager.cs" />
      <Compile Include="Assets\Standard Assets\Characters\RollerBall\Scripts\movement.cs" />
      <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
