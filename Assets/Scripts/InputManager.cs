@@ -6,14 +6,15 @@ public class InputManager : MonoBehaviour {
 
     // Use this for initialization
     public static int score;
-   
-    //Some shit code from net to handle fucking inputs!
 
+    //Some shit code from net to handle fucking inputs!
+    public static bool touched;
     void Update () {
         if ( EndCriterion.isRunning == true) {
             if (Input.GetMouseButtonDown(0))
             {
                 {
+                    touched = true;
                     RaycastHit hit;
                     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                     if (Physics.Raycast(ray, out hit))
@@ -42,6 +43,7 @@ public class InputManager : MonoBehaviour {
 
                     if (touch.phase == TouchPhase.Began)
                     {
+                        touched = true;
                         Ray screenRay = Camera.main.ScreenPointToRay(touch.position);
 
                         RaycastHit hit;

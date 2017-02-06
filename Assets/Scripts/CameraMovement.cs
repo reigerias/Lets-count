@@ -43,7 +43,7 @@ public class CameraMovement : MonoBehaviour {
             CreatingBall.RandomLocation += 1;
             UpdateBallTimer();
             UpdateDestroyTime();            
-}       
+          }       
     }
     public void ResetScore()
         {

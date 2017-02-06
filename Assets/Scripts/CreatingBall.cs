@@ -25,12 +25,12 @@ public class CreatingBall : MonoBehaviour {
            
          }
         ballCount = 1;
-        InvokeRepeating("SpawnBall", BallTimer , 2f ); //Spawning ball
+        InvokeRepeating("SpawnBall", BallTimer ,BallTimer ); //Spawning ball
         }
     void SpawnBall()
     {
         //Enables the Ball according to the Ball count!!
-        for ( int i = 0; i < 3; i++  )
+        for ( int i = 0; i < ballCount; i++  )
         {
             if(!balls[i].activeInHierarchy)
             {
