@@ -6,12 +6,12 @@ public class EndCriterion : MonoBehaviour {
 
     // Use this for initialization
     private static int BallCount;
-    private static int score;
+
     public static bool isRunning;
     int missed;
 	void Start () {
         BallCount = 0;
-        score = 0;
+        
         isRunning = true;
 
     }

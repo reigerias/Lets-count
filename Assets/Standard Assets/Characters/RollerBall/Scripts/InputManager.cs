@@ -30,5 +30,35 @@ public class InputManager : MonoBehaviour {
                 }
             }
         }
-	}
+
+        int nbTouches = Input.touchCount;
+
+        if (nbTouches > 0)
+        {
+            for (int i = 0; i < nbTouches; i++)
+            {
+                Touch touch = Input.GetTouch(i);
+
+                if (touch.phase == TouchPhase.Began)
+                {
+                    Ray screenRay = Camera.main.ScreenPointToRay(touch.position);
+
+                    RaycastHit hit;
+                    if (Physics.Raycast(screenRay, out hit))
+                    {
+                        if (hit.collider.gameObject.tag == "Retro")
+                        {
+                            hit.collider.gameObject.SetActive(false);
+                            Debug.Log("It was hit!!!");
+                            score++;
+                            Debug.Log("Score = " + score);
+                            //  GetBallNumber += 1;
+
+                        }
+                    }
+                }
+
+            }
+        }
+    }
 }
