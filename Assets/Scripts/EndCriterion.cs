@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class EndCriterion : MonoBehaviour {
@@ -22,7 +23,7 @@ public class EndCriterion : MonoBehaviour {
         if (missed > 3)
         {
             Debug.Log("GAME OVER! GG NOOB!");
-            Application.LoadLevel("tryAgain");
+            SceneManager.LoadScene("Scenes/tryAgain");
             isRunning = false; 
         }
         

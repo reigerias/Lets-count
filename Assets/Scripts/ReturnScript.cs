@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ReturnScript : MonoBehaviour {
@@ -17,6 +18,6 @@ public class ReturnScript : MonoBehaviour {
     // Update is called once per frame
     public void StartMen()
     {
-        Application.LoadLevel("Menu");
+        SceneManager.LoadScene("Scenes/Menu");
     }
 }

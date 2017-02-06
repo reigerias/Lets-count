@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenuScript : MonoBehaviour {
@@ -16,11 +17,11 @@ public class MainMenuScript : MonoBehaviour {
 	// Update is called once per frame
 	public void StartLevel()
     {
-        Application.LoadLevel("level1");
+        SceneManager.LoadScene("Scenes/level1");
     }
 
     public void OpenMarket()
     {
-        Application.LoadLevel("Market");
+        SceneManager.LoadScene("Scenes/Market");
     }
 }
