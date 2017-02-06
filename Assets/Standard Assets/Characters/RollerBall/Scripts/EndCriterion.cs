@@ -11,9 +11,7 @@ public class EndCriterion : MonoBehaviour {
     int missed;
 	void Start () {
         BallCount = 0;
-        
-        isRunning = true;
-
+       
     }
 	
 	// Update is called once per frame
