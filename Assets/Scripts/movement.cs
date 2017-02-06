@@ -11,8 +11,9 @@ public class movement : MonoBehaviour {
     private float ymin;
     private bool movingRight =true;
     private bool movingDown = true;
-    public float width =10f;
-    public float height = 9f;
+    public float width =5f;
+    public float height = 4f;
+    private float FromRandom;
 
     void Start()
     {
@@ -26,6 +27,8 @@ public class movement : MonoBehaviour {
         xmin = leftBoundary;
         ymax = topBorder;
         ymin = bottomBorder;
+        FromRandom = CreatingBall.RandomLocation;
+
 
     }
 

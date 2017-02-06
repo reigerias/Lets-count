@@ -7,7 +7,7 @@ public class DestroyBall : MonoBehaviour {
     public static int ballDestroyed;
     void Start()
     {
-        DestroyTime = 2f;
+        DestroyTime =4f;
         ballDestroyed = 0;
     }  
     	void OnEnable()

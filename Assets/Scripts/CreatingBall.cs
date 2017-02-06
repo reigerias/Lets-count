@@ -13,7 +13,7 @@ public class CreatingBall : MonoBehaviour {
     void Start()
     {
         RandomLocation = 4;
-        BallTimer = 2f; 
+        BallTimer = 0.36f; 
         balls = new List<GameObject>(); 
         pooledAmount = 20;
        //Adding the object to list
@@ -25,12 +25,12 @@ public class CreatingBall : MonoBehaviour {
            
          }
         ballCount = 1;
-        InvokeRepeating("SpawnBall", BallTimer , 1f ); //Spawning ball
+        InvokeRepeating("SpawnBall", BallTimer , 2f ); //Spawning ball
         }
     void SpawnBall()
     {
         //Enables the Ball according to the Ball count!!
-        for ( int i = 0; i < ballCount; i++  )
+        for ( int i = 0; i < 3; i++  )
         {
             if(!balls[i].activeInHierarchy)
             {
@@ -38,7 +38,7 @@ public class CreatingBall : MonoBehaviour {
                 balls[i].transform.position = position;
                 balls[i].transform.rotation = Quaternion.identity;
                 balls[i].SetActive(true); // Enabling the ball
-                       }
+             }
         }
     }
 }

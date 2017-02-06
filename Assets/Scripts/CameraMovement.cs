@@ -29,7 +29,7 @@ public class CameraMovement : MonoBehaviour {
         UpdateTime = (UpdateTime + Time.deltaTime); //Check time!!
         if (UpdateScore >=10 || UpdateTime > 20)
         {
-            moveCamera = -0.1f;
+            moveCamera = -1f;
             transform.Translate(0, 0, moveCamera);
             if (UpdateScore >= 10)
             {                
@@ -58,17 +58,17 @@ public class CameraMovement : MonoBehaviour {
 
     public void UpdateBallTimer()
     {
-        if (CreatingBall.BallTimer == 0.6f)
-            CreatingBall.BallTimer = 0.6f;
+        if (CreatingBall.BallTimer == 0.365f)
+            CreatingBall.BallTimer = 0.365f;
         else
            CreatingBall.BallTimer -= 0.2f;
     }
     public void UpdateDestroyTime()
     {
-        if (DestroyBall.DestroyTime == 0.6f)
-            DestroyBall.DestroyTime = 0.6f;
+        if (DestroyBall.DestroyTime == 12f)
+            DestroyBall.DestroyTime = 12f;
         else
-            DestroyBall.DestroyTime -= 0.2f;
+            DestroyBall.DestroyTime += 0.2f;
     }
     public static int getScore() {
         return LastScore;
