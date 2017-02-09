@@ -7,7 +7,7 @@ public class CreatingBall : MonoBehaviour {
     public static int x;
     public static float BallTimer; //Timer for Ball to spawn
     public static int RandomLocation; // Defines the matrix number initially 4x4 board!
-     int pooledAmount ; // Max number of ball to be initialized
+    public int pooledAmount ; // Max number of ball to be initialized
     public static int ballCount; // No of balls to be appeared!
     List<GameObject> balls; // List of balls
     void Start()
@@ -30,11 +30,12 @@ public class CreatingBall : MonoBehaviour {
     void SpawnBall()
     {
         //Enables the Ball according to the Ball count!!
-        for ( int i = 0; i < ballCount; i++  )
+        for ( int i = 0; i <ballCount; i++  )
         {
             if(!balls[i].activeInHierarchy)
             {
-                Vector3 position = new Vector3(UnityEngine.Random.Range(-RandomLocation, RandomLocation), UnityEngine.Random.Range(-RandomLocation, RandomLocation), UnityEngine.Random.Range(549, 549));//Defining random position
+                Vector3 position = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(0, Screen.width), Random.Range(0, Screen.height), Camera.main.farClipPlane / 2));
+                // Vector3 position = new Vector3(UnityEngine.Random.Range(-RandomLocation, RandomLocation), UnityEngine.Random.Range(-RandomLocation, RandomLocation), UnityEngine.Random.Range(549, 549));//Defining random position
                 balls[i].transform.position = position;
                 balls[i].transform.rotation = Quaternion.identity;
                 balls[i].SetActive(true); // Enabling the ball

@@ -6,9 +6,10 @@ public class InputManager : MonoBehaviour {
 
     // Use this for initialization
     public static int score;
-
-    //Some shit code from net to handle fucking inputs!
+   
+        //Some shit code from net to handle fucking inputs!
     public static bool touched;
+ 
     void Update () {
         if ( EndCriterion.isRunning == true) {
             if (Input.GetMouseButtonDown(0))
@@ -24,6 +25,7 @@ public class InputManager : MonoBehaviour {
                         {
                             hit.collider.gameObject.SetActive(false);
                             Debug.Log("It was hit!!!");
+                           
                             score++;
                             Debug.Log("Score = " + score);
                             //  GetBallNumber += 1;

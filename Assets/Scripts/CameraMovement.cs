@@ -29,8 +29,8 @@ public class CameraMovement : MonoBehaviour {
         UpdateTime = (UpdateTime + Time.deltaTime); //Check time!!
         if (UpdateScore >=10 || UpdateTime > 20)
         {
-            moveCamera = -1f;
-            transform.Translate(0, 0, moveCamera);
+            //moveCamera = -1f;
+            Camera.main.orthographicSize += 0.5f ;
             if (UpdateScore >= 10)
             {                
                 ResetScore();
