@@ -4,16 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class movement : MonoBehaviour {
-    private float speed = 1f;
+    private float speed = 0.4f;
     private float xmax;
     private float xmin;
     private float ymax;
     private float ymin;
     private bool movingRight =true;
     private bool movingDown = true;
-    public float width =5f;
-    public float height = 4f;
-    private float FromRandom;
+    public float width =8f;
+    public float height = 2f;
+
 
     void Start()
     {
@@ -27,7 +27,7 @@ public class movement : MonoBehaviour {
         xmin = leftBoundary;
         ymax = topBorder;
         ymin = bottomBorder;
-        FromRandom = CreatingBall.RandomLocation;
+
 
 
     }
@@ -37,19 +37,19 @@ public class movement : MonoBehaviour {
     {
         if (movingRight)
         {
-            transform.position += new Vector3(UnityEngine.Random.Range(1f, 5f), 0, 0) * speed * Time.deltaTime;
+            transform.position += new Vector3(UnityEngine.Random.Range(1f, 8f), 0, 0) * speed * Time.deltaTime;
         }
        else
         {
-            transform.position += new Vector3(UnityEngine.Random.Range(-1f, -5f), 0, 0) * speed * Time.deltaTime;
+            transform.position += new Vector3(UnityEngine.Random.Range(-1f, -8f), 0, 0) * speed * Time.deltaTime;
         }
         if (movingDown)
         {
-             transform.position += new Vector3(0, UnityEngine.Random.Range(1f, 5f), 0) * speed * Time.deltaTime;
+             transform.position += new Vector3(0, UnityEngine.Random.Range(1f, 8f), 0) * speed * Time.deltaTime;
         }
         else
         {
-            transform.position += new Vector3(0, UnityEngine.Random.Range(-1f, -5f), 0) * speed * Time.deltaTime;
+            transform.position += new Vector3(0, UnityEngine.Random.Range(-1f, -8f), 0) * speed * Time.deltaTime;
         }
 
         // Check if the formation is going outside the playspace...

@@ -20,10 +20,10 @@ public class EndCriterion : MonoBehaviour {
         IsRunning();
         BallCount = DestroyBall.ballDestroyed;
         missed = BallCount ;
-        if (missed == 99)
+        if (missed >= 3)
         {
             Debug.Log("GAME OVER! GG NOOB!");
-            SceneManager.LoadScene("Scenes/tryAgain");
+            SceneManager.LoadScene("Scenes/Hi-Score");
             isRunning = false; 
         }
         

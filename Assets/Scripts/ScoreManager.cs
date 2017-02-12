@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour {
 
-    public static int score; // The player's score.
+    private static int score;
+    public static int newScore;// The player's score.
     public static int hiscore;
     public Text missCount;
     int miss;
@@ -40,6 +41,7 @@ public class ScoreManager : MonoBehaviour {
         if(EndCriterion.isRunning)
         {
             score = score + (int)(hittime);
+            newScore = score;
             if (score > hiscore )
             {
                 hiscore = score;
