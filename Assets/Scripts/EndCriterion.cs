@@ -20,7 +20,7 @@ public class EndCriterion : MonoBehaviour {
         IsRunning();
         BallCount = DestroyBall.ballDestroyed;
         missed = BallCount ;
-        if (missed >= 3)
+        if (CountDowntimer.timeStart<= 0)
         {
             Debug.Log("GAME OVER! GG NOOB!");
             SceneManager.LoadScene("Scenes/Hi-Score");

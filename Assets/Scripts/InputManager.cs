@@ -6,16 +6,16 @@ public class InputManager : MonoBehaviour {
 
     // Use this for initialization
     public static int score;
-   
+     
         //Some shit code from net to handle fucking inputs!
-    public static bool touched;
+    public static bool ballHit;//Checks whether ball is hit or not!
  
     void Update () {
         if ( EndCriterion.isRunning == true) {
             if (Input.GetMouseButtonDown(0))
             {
                 {
-                    touched = true;
+                    
                     RaycastHit hit;
                     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                     if (Physics.Raycast(ray, out hit))
@@ -25,7 +25,7 @@ public class InputManager : MonoBehaviour {
                         {
                             hit.collider.gameObject.SetActive(false);
                             Debug.Log("It was hit!!!");
-                           
+                            ballHit = true;
                             score++;
                             Debug.Log("Score = " + score);
                             //  GetBallNumber += 1;
@@ -45,7 +45,7 @@ public class InputManager : MonoBehaviour {
 
                     if (touch.phase == TouchPhase.Began)
                     {
-                        touched = true;
+                      
                         Ray screenRay = Camera.main.ScreenPointToRay(touch.position);
 
                         RaycastHit hit;
@@ -55,6 +55,7 @@ public class InputManager : MonoBehaviour {
                             {
                                 hit.collider.gameObject.SetActive(false);
                                 Debug.Log("It was hit!!!");
+                                ballHit = true;
                                 score++;
                                 Debug.Log("Score = " + score);
                                 //  GetBallNumber += 1;

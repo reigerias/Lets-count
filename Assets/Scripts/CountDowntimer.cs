@@ -3,25 +3,25 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class Timer : MonoBehaviour {
+public class CountDowntimer : MonoBehaviour {
     public Text timerText;
-    private float startTime;
-    float t;
+    public static float timeStart;
     
     // Use this for initialization
     void Start () {
-
-        startTime = Time.time;
+        
+        timeStart = 2f; 
     }
 	
 	// Update is called once per frame
 	void Update () {
        // if (!StopTime)
           //  return;
-        t = Time.time - startTime;
-        string min = ((int)t / 60).ToString();
-        string sec = (t % 60).ToString("f2");
+        timeStart -= Time.deltaTime;
+        string min = ((int)timeStart / 60).ToString();
+        string sec = (timeStart % 60).ToString("f2");
         timerText.text = min + ":" + sec;        
 
 	}
+   
 }

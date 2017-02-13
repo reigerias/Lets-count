@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class OnTouch : MonoBehaviour {
-    public static bool touched = InputManager.touched;
+    public static bool touched = InputManager.ballHit;
     // Use this for initialization
     public Animator ani;
     void Start()
