@@ -37,6 +37,7 @@ public class InputManager : MonoBehaviour {
                         else
                         {
                             ballHit = false;
+                                                  
                         }
                     }
                 }

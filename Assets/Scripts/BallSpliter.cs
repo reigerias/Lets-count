@@ -3,18 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BallSpliter : MonoBehaviour {
-
+    private static int hitCheck; //interger to store score;
+    private int score;
 	// Use this for initialization
 	void Start () {
-        InvokeRepeating("OnBallHit", 0.1f, 1f);
+        
+        score = 0;
 	}
 	
 	// Update is called once per frame
-	void OnBallHit( ) {
-		if (InputManager.ballHit ==true)
+	void Update() {
+        hitCheck = InputManager.score;
+        if (hitCheck - score == 1)//checking if ball is hit or not!
         {
-            BallCreator2.ballCounts++;
+            BallCreator2.ballCounts+=2;
             CountDowntimer.timeStart += 1;
+            score = hitCheck;
         }
+       
 	}
 }

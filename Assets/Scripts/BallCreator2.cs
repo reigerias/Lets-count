@@ -17,7 +17,7 @@ public class BallCreator2 : MonoBehaviour
         RandomLocation = 4;
         BallTimer = 0.36f;
         balls = new List<GameObject>();
-        pooledAmount = 5;
+        pooledAmount = 2;
         //Adding the object to list
         for (int i = 0; i < pooledAmount; i++)
         {
@@ -26,28 +26,38 @@ public class BallCreator2 : MonoBehaviour
             balls.Add(obj);
 
         }
-        ballCounts = 1;
+        ballCounts = 0;
 
         InvokeRepeating("SpawnBall", BallTimer, BallTimer);
     }
     void SpawnBall()
     {
         //Enables the Ball according to the Ball count!!
+        
+        
+            for (int i = 0; i <ballCounts; i++)
+            {
 
-        for (int i = 0; i < ballCounts; i++)
-        {
-            
                 if (!balls[i].activeInHierarchy)
                 {
-                   Vector3 position = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(0, Screen.width - 100), Random.Range(0, Screen.height - 100), Camera.main.farClipPlane / 2));
+                    Vector3 position = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(0, Screen.width - 100), Random.Range(0, Screen.height - 100), Camera.main.farClipPlane / 2));
                     balls[i].transform.position = position;
                     balls[i].transform.rotation = Quaternion.identity;
-                    balls[i].SetActive(true); // Enabling the ball
+                    balls[i].SetActive(true);
+                  // Enabling the ball
                 }
+
+            
+        }
+        if (balls.Count >= 150)
+            return;
+        else
+        {
             GameObject obj = (GameObject)Instantiate(ball);
             obj.SetActive(false);
             balls.Add(obj);
+        }
 
-        }
-        }
-   }
+    }
+}
+    
