@@ -9,7 +9,10 @@ public class InputManager : MonoBehaviour {
      
         //Some shit code from net to handle fucking inputs!
     public static bool ballHit;//Checks whether ball is hit or not!
- 
+    void Start()
+    {
+        ballHit = false;
+    }
     void Update () {
         if ( EndCriterion.isRunning == true) {
             if (Input.GetMouseButtonDown(0))
@@ -25,11 +28,15 @@ public class InputManager : MonoBehaviour {
                         {
                             hit.collider.gameObject.SetActive(false);
                             Debug.Log("It was hit!!!");
-                               
+                            ballHit = true;
                                 score++;
                             Debug.Log("Score = " + score);
                             //  GetBallNumber += 1;
 
+                        }
+                        else
+                        {
+                            ballHit = false;
                         }
                     }
                 }

@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\AudioManager.cs" />
      <Compile Include="Assets\Scripts\BallCreator2.cs" />
+     <Compile Include="Assets\Scripts\BallSpliter.cs" />
      <Compile Include="Assets\Scripts\CameraMovement.cs" />
      <Compile Include="Assets\Scripts\CountDowntimer.cs" />
      <Compile Include="Assets\Scripts\CreatingBall.cs" />
