@@ -25,8 +25,8 @@ public class InputManager : MonoBehaviour {
                         {
                             hit.collider.gameObject.SetActive(false);
                             Debug.Log("It was hit!!!");
-                            ballHit = true;
-                            score++;
+                               
+                                score++;
                             Debug.Log("Score = " + score);
                             //  GetBallNumber += 1;
 
