@@ -10,7 +10,7 @@ public class CountDowntimer : MonoBehaviour {
     // Use this for initialization
     void Start () {
         
-        timeStart = 5f; 
+        timeStart =10f; 
     }
 	
 	// Update is called once per frame

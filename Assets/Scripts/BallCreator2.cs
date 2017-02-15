@@ -17,7 +17,7 @@ public class BallCreator2 : MonoBehaviour
         RandomLocation = 4;
         BallTimer = 0.36f;
         balls = new List<GameObject>();
-        pooledAmount = 2;
+        pooledAmount = 150;
         //Adding the object to list
         for (int i = 0; i < pooledAmount; i++)
         {
@@ -49,7 +49,7 @@ public class BallCreator2 : MonoBehaviour
 
             
         }
-        if (balls.Count >= 150)
+        if (balls.Count >= 500)
             return;
         else
         {

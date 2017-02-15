@@ -36,8 +36,8 @@ public class InputManager : MonoBehaviour {
                         }
                         else
                         {
-                            ballHit = false;
-                                                  
+                            CountDowntimer.timeStart-=2f;
+
                         }
                     }
                 }
