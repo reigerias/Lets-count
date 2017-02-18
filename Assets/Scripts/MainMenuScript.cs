@@ -22,6 +22,6 @@ public class MainMenuScript : MonoBehaviour {
 
     public void OpenMarket()
     {
-        SceneManager.LoadScene("Scenes/Market");
+        SceneManager.LoadScene("Scenes/level2");
     }
 }

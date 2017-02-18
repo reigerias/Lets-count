@@ -9,6 +9,7 @@ public class ScoreManager : MonoBehaviour {
     public static int newScore;// The player's score.
     public static int hiscore;
     public Text missCount;
+    private int level1score, level2score;
     int miss;
     Text text;                      // Reference to the Text component.
 
@@ -20,14 +21,26 @@ public class ScoreManager : MonoBehaviour {
 
         // Reset the score.
         score = 0;
-        
+
         //select highscore;
-       if( PlayerPrefs.GetInt("HighScore") != null)
+        if (Application.loadedLevelName == "level1")
         {
-            hiscore = PlayerPrefs.GetInt("HighScore");
-
-        } 
-
+            if (PlayerPrefs.GetInt("HighScore1") != null)
+            {
+                level1score = PlayerPrefs.GetInt("HighScore1");
+                hiscore = level1score;
+            }
+        }
+        else if (Application.loadedLevelName == "level2")
+        {
+            if (PlayerPrefs.GetInt("HighScore2") != null)
+            {
+                level2score = PlayerPrefs.GetInt("HighScore2");
+                hiscore = level2score;
+            }
+        }
+       
+        
       }
 
 
@@ -41,12 +54,30 @@ public class ScoreManager : MonoBehaviour {
         if(EndCriterion.isRunning)
         {
             score = score + (int)(hittime);
+
             newScore = score;
-            if (score > hiscore )
+            if (Application.loadedLevelName == "level1")
             {
-                hiscore = score;
-                PlayerPrefs.SetInt("HighScore", hiscore);
+          
+                if (score > level1score)
+                {
+                    level1score = score;
+                    PlayerPrefs.SetInt("HighScore1", level1score);
+                    hiscore = level1score;
+
+                }
             }
+            else if (Application.loadedLevelName == "level2")
+            {
+                
+                if (score > level2score)
+                {
+                    level2score = score;                   
+                    PlayerPrefs.SetInt("HighScore2", level2score);
+                    hiscore = level2score;
+                }
+            }
+            
 
         }
             
