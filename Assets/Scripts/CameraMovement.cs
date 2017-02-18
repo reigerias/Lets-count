@@ -10,15 +10,14 @@ public class CameraMovement : MonoBehaviour {
     static int LastScore; 
     float UpdateTime;
     float LastTime; 
-    float moveCamera;
+
     
 	void Start () {
         score = InputManager.score;
         UpdateScore = 0;
         LastScore = 0; 
         UpdateTime = 0;
-        moveCamera = 0; 
-
+       
     }
 
     // Update is called once per frame You can figure this out ! its easy man!

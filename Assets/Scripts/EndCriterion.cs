@@ -14,20 +14,35 @@ public class EndCriterion : MonoBehaviour {
         BallCount = 0;
        
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         IsRunning();
         BallCount = DestroyBall.ballDestroyed;
-        missed = BallCount ;
-        if (CountDowntimer.timeStart<= 0)
+        missed = BallCount;
+        if (Application.loadedLevelName == "level1")
         {
-            Debug.Log("GAME OVER! GG NOOB!");
-            SceneManager.LoadScene("Scenes/Hi-Score");
-            isRunning = false; 
+            if (missed >= 3)
+            {
+                Debug.Log("GAME OVER! GG NOOB!");
+                SceneManager.LoadScene("Scenes/Hi-Score");
+                isRunning = false;
+            }
         }
-        
+
+        else if (Application.loadedLevelName == "level2")
+        {
+
+            if (CountDowntimer.timeStart <= 0)
+            {
+                Debug.Log("GAME OVER! GG NOOB!");
+                SceneManager.LoadScene("Scenes/Hi-Score");
+                isRunning = false;
+            }
+        }
     }
+
     public void IsRunning()
     {
         isRunning = true;

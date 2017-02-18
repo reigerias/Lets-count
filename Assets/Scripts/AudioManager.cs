@@ -19,8 +19,7 @@ public class AudioManager : MonoBehaviour
 
     void PlayRandomAudio()
     {
-        // count the number of images that you have selected..
-        // lets say you selected 30 images
+        
         int count = audios.Count;
 
         // randomly select any number between 0 and 30

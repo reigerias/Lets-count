@@ -40,7 +40,7 @@ public class BallCreator2 : MonoBehaviour
 
                 if (!balls[i].activeInHierarchy)
                 {
-                    Vector3 position = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(0, Screen.width - 100), Random.Range(0, Screen.height - 100), Camera.main.farClipPlane / 2));
+                    Vector3 position = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(0, Screen.width ), Random.Range(0, Screen.height ), Camera.main.farClipPlane / 2));
                     balls[i].transform.position = position;
                     balls[i].transform.rotation = Quaternion.identity;
                     balls[i].SetActive(true);
