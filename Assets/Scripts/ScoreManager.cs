@@ -8,6 +8,7 @@ public class ScoreManager : MonoBehaviour {
     private static int score;
     public static int newScore;// The player's score.
     public static int hiscore;
+    public static int previousScore; //Variable to store current as previous score.
     public Text missCount;
     private int level1score, level2score;
     int miss;
@@ -30,6 +31,12 @@ public class ScoreManager : MonoBehaviour {
                 level1score = PlayerPrefs.GetInt("HighScore1");
                 hiscore = level1score;
             }
+            if (PlayerPrefs.GetInt("prevScore1") != null)
+            {
+                previousScore = PlayerPrefs.GetInt("prevScore1");
+            }
+            else
+                previousScore = 0;
         }
         else if (Application.loadedLevelName == "level2")
         {
@@ -38,6 +45,12 @@ public class ScoreManager : MonoBehaviour {
                 level2score = PlayerPrefs.GetInt("HighScore2");
                 hiscore = level2score;
             }
+            if (PlayerPrefs.GetInt("prevScore2") != null)
+            {
+                previousScore = PlayerPrefs.GetInt("prevScore2");
+            }
+            else
+                previousScore = 0;
         }
        
         
@@ -64,9 +77,9 @@ public class ScoreManager : MonoBehaviour {
                     level1score = score;
                     PlayerPrefs.SetInt("HighScore1", level1score);
                     hiscore = level1score;
-
-                }
-            }
+                 }
+                PlayerPrefs.SetInt("prevScore1", newScore);
+             }
             else if (Application.loadedLevelName == "level2")
             {
                 
@@ -76,15 +89,20 @@ public class ScoreManager : MonoBehaviour {
                     PlayerPrefs.SetInt("HighScore2", level2score);
                     hiscore = level2score;
                 }
+                PlayerPrefs.SetInt("prevScore2", newScore);
             }
             
 
         }
             
         text.text = "Score: " + score;
-        if (miss == 1)
-            missCount.text = "You missed "+ miss.ToString() +" ball.";
-        else
-            missCount.text = "You missed " + miss.ToString() + " balls.";
+        if(Application.loadedLevelName == "level1")
+        {
+            if (miss == 1)
+                missCount.text = "You missed " + miss.ToString() + " ball.";
+            else
+                missCount.text = "You missed " + miss.ToString() + " balls.";
+        }
+       
     }
 }
