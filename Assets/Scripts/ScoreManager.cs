@@ -103,6 +103,6 @@ public class ScoreManager : MonoBehaviour {
             else
                 missCount.text = "You missed " + miss.ToString() + " balls.";
         }
-       
+                      
     }
 }

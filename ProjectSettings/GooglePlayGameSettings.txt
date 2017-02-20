@@ -1,2 +1,10 @@
 lastUpgrade=00936
 proj.pluginVersion=0.9.36
+proj.AppId=486252882208
+and.BundleId=com.mediocrestudios.letscount
+proj.classDir=Assets
+proj.ConstantsClassName=LetscountResources
+and.ResourceData=%3c%3fxml+version%3d%221.0%22+encoding%3d%22utf-8%22%3f%3e%0d%0a%3c%21--%0d%0aGoogle+Play+game+services+IDs.%0d%0aSave+this+file+as+res%2fvalues%2fgames-ids.xml+in+your+project.%0d%0a--%3e%0d%0a%3cresources%3e%0d%0a++%3cstring+name%3d%22app_id%22%3e486252882208%3c%2fstring%3e%0d%0a++%3cstring+name%3d%22package_name%22%3ecom.mediocrestudios.letscount%3c%2fstring%3e%0d%0a++%3cstring+name%3d%22achievement_ach1%22%3eCgkIoNK4t5MOEAIQAQ%3c%2fstring%3e%0d%0a++%3cstring+name%3d%22achievement_ach2%22%3eCgkIoNK4t5MOEAIQAg%3c%2fstring%3e%0d%0a++%3cstring+name%3d%22achievement_ach3%22%3eCgkIoNK4t5MOEAIQAw%3c%2fstring%3e%0d%0a++%3cstring+name%3d%22achievement_ach4%22%3eCgkIoNK4t5MOEAIQBA%3c%2fstring%3e%0d%0a++%3cstring+name%3d%22achievement_ach5%22%3eCgkIoNK4t5MOEAIQBQ%3c%2fstring%3e%0d%0a++%3cstring+name%3d%22leaderboard_global_leaderboard%22%3eCgkIoNK4t5MOEAIQAA%3c%2fstring%3e%0d%0a%3c%2fresources%3e%0d%0a
+and.ClientId=
+proj.requireGPlus=false
+android.SetupDone=true

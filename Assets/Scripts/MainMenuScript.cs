@@ -3,25 +3,50 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using GooglePlayGames;
+using UnityEngine.SocialPlatforms;
 
 public class MainMenuScript : MonoBehaviour {
 
     // Use this for initialization
     public Button startText;
     public Button marketText;
-	void Start () {
+    //public Button leaderboard;
+    private bool IsConnectedToGoogleServices;
+   // public string leaderboard1;
+
+    void Start () {
+        PlayGamesPlatform.Activate();
+
         startText = startText.GetComponent<Button>();
-        marketText = startText.GetComponent<Button>();
+        marketText = marketText.GetComponent<Button>();
+       // leaderboard = leaderboard.GetComponent<Button>(); 
     }
-	
+	public bool ConnectedToGoogleServices()
+    {
+        if(!IsConnectedToGoogleServices)
+        {
+            Social.localUser.Authenticate((bool success) => { IsConnectedToGoogleServices = success; });
+        }
+        return IsConnectedToGoogleServices;
+    }
 	// Update is called once per frame
 	public void StartLevel()
     {
         SceneManager.LoadScene("Scenes/level1");
     }
-
-    public void OpenMarket()
+    public void StartLeve2()
     {
         SceneManager.LoadScene("Scenes/level2");
     }
+
+   /* public void leaderBoard()
+    {
+        if (Social.localUser.authenticated)
+        {
+            Social.ShowLeaderboardUI();
+        }
+        
+    }*/
+
 }
