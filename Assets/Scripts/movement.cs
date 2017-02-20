@@ -19,7 +19,7 @@ public class movement : MonoBehaviour {
     {
         float distanceToCamera = transform.position.z - Camera.main.transform.position.z;
        
-         var leftBoundary = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, distanceToCamera)).x;
+        var leftBoundary = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, distanceToCamera)).x;
         var rightEdge = Camera.main.ViewportToWorldPoint(new Vector3(1, 0, distanceToCamera)).x;
         var bottomBorder = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, distanceToCamera)).y;
         var topBorder = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, distanceToCamera)).y;
@@ -37,19 +37,19 @@ public class movement : MonoBehaviour {
     {
         if (movingRight)
         {
-            transform.position += new Vector3(UnityEngine.Random.Range(1f, 8f), 0, 0) * speed * Time.deltaTime;
+            transform.position += new Vector3(UnityEngine.Random.Range(1f, 5f), 0, 0) * speed * Time.deltaTime;
         }
        else
         {
-            transform.position += new Vector3(UnityEngine.Random.Range(-1f, -8f), 0, 0) * speed * Time.deltaTime;
+            transform.position += new Vector3(UnityEngine.Random.Range(-1f, -5f), 0, 0) * speed * Time.deltaTime;
         }
         if (movingDown)
         {
-             transform.position += new Vector3(0, UnityEngine.Random.Range(1f, 8f), 0) * speed * Time.deltaTime;
+             transform.position += new Vector3(0, UnityEngine.Random.Range(1f, 5f), 0) * speed * Time.deltaTime;
         }
         else
         {
-            transform.position += new Vector3(0, UnityEngine.Random.Range(-1f, -8f), 0) * speed * Time.deltaTime;
+            transform.position += new Vector3(0, UnityEngine.Random.Range(-1f, -5f), 0) * speed * Time.deltaTime;
         }
 
         // Check if the formation is going outside the playspace...

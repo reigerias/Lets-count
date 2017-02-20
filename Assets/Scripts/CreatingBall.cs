@@ -34,7 +34,22 @@ public class CreatingBall : MonoBehaviour {
         {
             if(!balls[i].activeInHierarchy)
             {
-                Vector3 position = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(0, Screen.width), Random.Range(0, Screen.height), Camera.main.farClipPlane / 2));
+                float x = (float)(Screen.width * 0.9);
+                float y = (float)(Screen.height *0.9);
+                Vector3 position = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(0, x) , Random.Range(0, y), Camera.main.nearClipPlane+25));
+                if(position.x < 0)
+                {
+                    position.x += 2;
+                }
+                else
+                    position.x -= 2;
+                if (position.y< 0)
+                {
+                    position.y += 2;
+                }
+                else
+                    position.y -= 2;
+
                 balls[i].transform.position = position;
                 balls[i].transform.rotation = Quaternion.identity;
                 balls[i].SetActive(true); // Enabling the ball

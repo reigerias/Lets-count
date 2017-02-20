@@ -40,8 +40,22 @@ public class BallCreator2 : MonoBehaviour
 
                 if (!balls[i].activeInHierarchy)
                 {
-                    Vector3 position = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(0, Screen.width ), Random.Range(0, Screen.height ), Camera.main.farClipPlane / 2));
-                    balls[i].transform.position = position;
+
+                Vector3 position = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(0, Screen.width ), Random.Range(0, Screen.height ), Camera.main.farClipPlane / 2));
+                //finishing the postion. setting it up 2 position above or below ( left or right) accordingly. In other words solved camera out of bound.
+                if (position.x < 0)
+                {
+                    position.x += 2;
+                }
+                else
+                    position.x -= 2;
+                if (position.y < 0)
+                {
+                    position.y += 2;
+                }
+                else
+                    position.y -= 2;
+                balls[i].transform.position = position;
                     balls[i].transform.rotation = Quaternion.identity;
                     balls[i].SetActive(true);
                   // Enabling the ball
