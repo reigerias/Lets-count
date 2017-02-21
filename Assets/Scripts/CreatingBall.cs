@@ -53,7 +53,9 @@ public class CreatingBall : MonoBehaviour {
                 balls[i].transform.position = position;
                 balls[i].transform.rotation = Quaternion.identity;
                 balls[i].SetActive(true); // Enabling the ball
-             }
+
+            
+            }
         }
     }
 }

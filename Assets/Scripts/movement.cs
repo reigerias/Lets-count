@@ -3,69 +3,56 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class movement : MonoBehaviour {
-    private float speed = 0.4f;
-    private float xmax;
-    private float xmin;
-    private float ymax;
-    private float ymin;
-    private bool movingRight =true;
-    private bool movingDown = true;
-    public float width =8f;
-    public float height = 2f;
-
-
+    public float moveSpeed;
+    private float playerRadius;
+    private float minX, maxX, minY, maxY;
+    private float  tChange = 0; // force new direction in the first Update
+    private float randomX, randomY;
     void Start()
     {
-        float distanceToCamera = transform.position.z - Camera.main.transform.position.z;
-       
-        var leftBoundary = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, distanceToCamera)).x;
-        var rightEdge = Camera.main.ViewportToWorldPoint(new Vector3(1, 0, distanceToCamera)).x;
-        var bottomBorder = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, distanceToCamera)).y;
-        var topBorder = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, distanceToCamera)).y;
-        xmax = rightEdge;
-        xmin = leftBoundary;
-        ymax = topBorder;
-        ymin = bottomBorder;
+        moveSpeed =2.5f;
+       float camDistance = Vector3.Distance(transform.position, Camera.main.transform.position);
+        Vector2 bottomCorner = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, camDistance));
+        Vector2 topCorner = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, camDistance));
 
+        //in Start
+        SphereCollider playerCollider = GetComponent<SphereCollider>();
+        playerRadius = playerCollider.bounds.extents.x;
+
+        tChange = 0;
+                
+        minX = bottomCorner.x + playerRadius;
+        maxX = topCorner.x - playerRadius;
+        minY = bottomCorner.y + playerRadius;
+        maxY = topCorner.y - playerRadius;
 
 
     }
-
-    // Update is called once per frame
     void Update()
     {
-        if (movingRight)
+        if (Time.time >= tChange)
         {
-            transform.position += new Vector3(UnityEngine.Random.Range(1f, 5f), 0, 0) * speed * Time.deltaTime;
+            randomX = UnityEngine.Random.Range(-2.0f, 2.0f); // with float parameters, a random float
+            randomY = UnityEngine.Random.Range(-2.0f, 2.0f); //  between -2.0 and 2.0 is returned
+                                               // set a random interval between 0.5 and 1.5
+            tChange = Time.time + UnityEngine.Random.Range(0.5f, 1.5f);
         }
-       else
+        transform.Translate(new Vector3(randomX, randomY, 485 )* moveSpeed * Time.deltaTime);
+        // if object reached any border, revert the appropriate direction
+        if (transform.position.x >= maxX || transform.position.x <= minX)
         {
-            transform.position += new Vector3(UnityEngine.Random.Range(-1f, -5f), 0, 0) * speed * Time.deltaTime;
+            randomX = -randomX;
         }
-        if (movingDown)
+        if (transform.position.y >= maxY || transform.position.y <= minY)
         {
-             transform.position += new Vector3(0, UnityEngine.Random.Range(1f, 5f), 0) * speed * Time.deltaTime;
+            randomY = -randomY;
         }
-        else
-        {
-            transform.position += new Vector3(0, UnityEngine.Random.Range(-1f, -5f), 0) * speed * Time.deltaTime;
-        }
-
-        // Check if the formation is going outside the playspace...
-        float rightEdgeOfFormation = transform.position.x + (0.5f * width);
-        float leftEdgeOfFormation = transform.position.x - (0.5f * width);
-        float topEdgeOfFormation = transform.position.y + (0.5f * height);
-        float bottomEdgeOfFormation = transform.position.y - (0.5f * height);
-        if (leftEdgeOfFormation < xmin || rightEdgeOfFormation > xmax)
-        {
-            movingRight = !movingRight;
-        }
-        if (bottomEdgeOfFormation < ymin || topEdgeOfFormation > ymax)
-        {
-            movingDown = !movingDown;
-        }
-
+        // make sure the position is inside the borders
+       float x = Mathf.Clamp(transform.position.x, minX, maxX);
+       float y = Mathf.Clamp(transform.position.y, minY, maxY);
+        transform.position = new Vector3(x, y, 485);
 
     }
 }
