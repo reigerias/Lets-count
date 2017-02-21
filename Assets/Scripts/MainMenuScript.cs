@@ -17,6 +17,7 @@ public class MainMenuScript : MonoBehaviour {
 
     void Start () {
         PlayGamesPlatform.Activate();
+        ConnectedToGoogleServices();
         PlayGamesPlatform.DebugLogEnabled = true;
         IsConnectedToGoogleServices = false;
        startText = startText.GetComponent<Button>();
@@ -43,13 +44,12 @@ public class MainMenuScript : MonoBehaviour {
 
    public void leaderBoard()
     {
-        PlayGamesPlatform.Activate();
-        ConnectedToGoogleServices();
+        
         if (Social.localUser.authenticated)
         {
             Social.ShowLeaderboardUI();
         }
-        
+               
     }
 
 }

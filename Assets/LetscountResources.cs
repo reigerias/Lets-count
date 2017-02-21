@@ -24,15 +24,16 @@
 
 public static class LetscountResources
 {
+        public const string leaderboard_inifinite_magic = "CgkIoNK4t5MOEAIQAA"; // <GPGSID>
         public const string achievement_suyog_sng = "CgkIoNK4t5MOEAIQCg"; // <GPGSID>
         public const string achievement_shivam_kharga = "CgkIoNK4t5MOEAIQDQ"; // <GPGSID>
         public const string achievement_anish_stha = "CgkIoNK4t5MOEAIQCw"; // <GPGSID>
         public const string achievement_worlds_noobest_player = "CgkIoNK4t5MOEAIQCA"; // <GPGSID>
         public const string achievement_anish_parajuli = "CgkIoNK4t5MOEAIQDA"; // <GPGSID>
         public const string achievement_professional_ball_toucher = "CgkIoNK4t5MOEAIQDg"; // <GPGSID>
+        public const string leaderboard_time_rush = "CgkIoNK4t5MOEAIQDw"; // <GPGSID>
         public const string achievement_fastest_fingerer = "CgkIoNK4t5MOEAIQBw"; // <GPGSID>
         public const string achievement_sailesh_mishra = "CgkIoNK4t5MOEAIQCQ"; // <GPGSID>
-        public const string leaderboard_global_leaderboard = "CgkIoNK4t5MOEAIQAA"; // <GPGSID>
 
 }
 

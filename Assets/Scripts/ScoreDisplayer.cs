@@ -18,12 +18,15 @@ public class ScoreDisplayer : MonoBehaviour {
         scoreText.text = score.ToString();
         hiscoreText.text = hiscore.ToString();
         StartCoroutine(WaitAndLoadScene());
+        ScoreManager.SaveToLeaderboard();
     }
 
     IEnumerator WaitAndLoadScene()
     {
+        
         yield return new WaitForSeconds(7f);
         SceneManager.LoadScene("Scenes/Menu");
+      
     }
     // Update is called once per frame
     

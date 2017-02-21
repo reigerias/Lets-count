@@ -24,7 +24,7 @@ public class CreatingBall : MonoBehaviour {
             balls.Add(obj);
            
          }
-        ballCount = 1;
+        ballCount = 2;
         InvokeRepeating("SpawnBall", BallTimer ,BallTimer ); //Spawning ball
         }
     void SpawnBall()
@@ -34,8 +34,8 @@ public class CreatingBall : MonoBehaviour {
         {
             if(!balls[i].activeInHierarchy)
             {
-                float x = (float)(Screen.width * 0.9);
-                float y = (float)(Screen.height *0.9);
+                float x = (float)(Screen.width );
+                float y = (float)(Screen.height);
                 Vector3 position = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(0, x) , Random.Range(0, y), Camera.main.nearClipPlane+25));
                 if(position.x < 0)
                 {

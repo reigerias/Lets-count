@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour {
-
+    public static int levelSelector;
     private static int score;
     public static int newScore;// The player's score.
     public static int hiscore;
@@ -30,6 +30,7 @@ public class ScoreManager : MonoBehaviour {
             {
                 level1score = PlayerPrefs.GetInt("HighScore1");
                 hiscore = level1score;
+               
             }
             if (PlayerPrefs.GetInt("prevScore1") != null)
             {
@@ -77,6 +78,8 @@ public class ScoreManager : MonoBehaviour {
                     level1score = score;
                     PlayerPrefs.SetInt("HighScore1", level1score);
                     hiscore = level1score;
+                    levelSelector = 1;
+                    
                  }
                 PlayerPrefs.SetInt("prevScore1", newScore);
              }
@@ -88,6 +91,7 @@ public class ScoreManager : MonoBehaviour {
                     level2score = score;                   
                     PlayerPrefs.SetInt("HighScore2", level2score);
                     hiscore = level2score;
+                    levelSelector = 2;
                 }
                 PlayerPrefs.SetInt("prevScore2", newScore);
             }
@@ -105,4 +109,18 @@ public class ScoreManager : MonoBehaviour {
         }
                       
     }
+    public static void SaveToLeaderboard()
+    {
+        if(ScoreManager.levelSelector == 1)
+        Social.ReportScore(hiscore, LetscountResources.leaderboard_inifinite_magic, (bool success) =>
+        {
+
+        });
+        else if (ScoreManager.levelSelector == 2)
+            Social.ReportScore(hiscore, LetscountResources.leaderboard_time_rush, (bool success) =>
+            {
+
+            });
+    }
 }
+

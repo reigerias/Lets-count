@@ -7,23 +7,24 @@ public class EndCriterion : MonoBehaviour {
 
     // Use this for initialization
     private static int BallCount;
-
+   private static int UpdateMiss;
     public static bool isRunning;
     int missed;
 	void Start () {
         BallCount = 0;
-       
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        UpdateMiss = CameraMovement.misscount;
         IsRunning();
         BallCount = DestroyBall.ballDestroyed;
         missed = BallCount;
         if (Application.loadedLevelName == "level1")
         {
-            if (missed >= 3)
+            if (missed >= UpdateMiss)
             {
                 Debug.Log("GAME OVER! GG NOOB!");
                 SceneManager.LoadScene("Scenes/Hi-Score");
